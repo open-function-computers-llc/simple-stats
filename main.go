@@ -27,10 +27,10 @@ func main() {
 		w.Header().Set("Content-Type", "text/json")
 
 		// check for matching token
-		// if r.FormValue("token") != token {
-		// 	sendError(w, "token mismatch")
-		// 	return
-		// }
+		if r.FormValue("token") != token {
+			sendError(w, "token mismatch")
+			return
+		}
 
 		stats := statsOutput{}
 		var result bytes.Buffer
@@ -43,14 +43,14 @@ func main() {
 
 		// get available server RAM
 		result.Reset()
-		freeRAMCommand := exec.Command("free", "-h")
+		freeRAMCommand := exec.Command("free")
 		freeRAMCommand.Stdout = &result
 		freeRAMCommand.Run()
 		stats.RAM.Mem, stats.RAM.Swap = cleanFree(result.String())
 
 		// get available disc space
 		result.Reset()
-		dfCommand := exec.Command("df", "-h")
+		dfCommand := exec.Command("df")
 		dfCommand.Stdout = &result
 		dfCommand.Run()
 		stats.Discs = processDF(result.String())
