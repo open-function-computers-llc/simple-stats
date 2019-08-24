@@ -1,0 +1,13 @@
+[Unit]
+Description=A tiny program that spits out server health stats
+
+[Service]
+Environment=OFCOSTATSPORT=48832
+Environment=OFCOSTATSTOKEN=SomeRandomString12345
+ExecStart=/root/simple-stats
+
+
+[Install]
+WantedBy=multi-user.target
+
+
