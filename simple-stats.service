@@ -3,7 +3,7 @@ Description=A tiny program that spits out server health stats
 
 [Service]
 Environment=OFCOSTATSPORT=48832
-Environment=OFCOSTATSTOKEN=SomeRandomString12345
+Environment=OFCOSTATSTOKEN=YourRandomString12345
 ExecStart=/root/simple-stats
 
 
