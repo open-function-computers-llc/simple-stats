@@ -6,5 +6,8 @@ echo "Done"
 
 echo "Building"
 go build -o dist/simple-stats
+
+export OFCOSTATSTOKEN=SECRETTOKEN12345
+
 ./dist/simple-stats &
 echo "App running..."

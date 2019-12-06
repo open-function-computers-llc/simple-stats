@@ -55,6 +55,8 @@ func main() {
 		dfCommand.Run()
 		stats.Discs = processDF(result.String())
 
+		stats.AdditionalCommands = checkAdditionalCommands()
+
 		output, _ := json.Marshal(stats)
 		w.Write(output)
 	})

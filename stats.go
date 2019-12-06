@@ -12,6 +12,7 @@ type statsOutput struct {
 		FiveMinutes    string `json:"five-minutes"`
 		FifteenMinutes string `json:"fifteen-minutes"`
 	} `json:"loadAverages"`
+	AdditionalCommands []AdditionalCommand `json:"additional-commands"`
 }
 
 type disc struct {
