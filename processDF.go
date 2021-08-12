@@ -18,6 +18,11 @@ func processDF(raw string) []disc {
 			continue
 		}
 
+		// skip any snap mount points
+		if len(words[5]) > 14 && words[5][0:14] == "/var/lib/snapd" {
+			continue
+		}
+
 		disc := disc{
 			Size:        words[1],
 			Used:        words[2],
